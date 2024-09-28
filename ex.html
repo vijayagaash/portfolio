@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable and Reducible Divs</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .expandable {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            transition: width 0.3s ease, height 0.3s ease;
+            cursor: pointer;
+        }
+
+        .reducible {
+            width: 150px;
+            height: 150px;
+            background-color: #e74c3c;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="expandable" id="expandableDiv">Expand Me!</div>
+    <div class="reducible" id="reducibleDiv">Reduce Me!</div>
+</div>
+
+<script>
+    document.getElementById("expandableDiv").addEventListener("mouseenter", function() {
+        const expandable = this;
+        const reducible = document.getElementById("reducibleDiv");
+
+        // Toggle the sizes
+        if (expandable.style.width === "150px") {
+            expandable.style.width = "100px";
+            expandable.style.height = "100px";
+            reducible.style.width = "150px";
+            reducible.style.height = "150px";
+        } else {
+            expandable.style.width = "150px"; // New size for expandable div
+            expandable.style.height = "150px"; // New size for expandable div
+            reducible.style.width = "100px"; // New size for reducible div
+            reducible.style.height = "100px"; // New size for reducible div
+        }
+    });
+</script>
+
+</body>
+</html>
